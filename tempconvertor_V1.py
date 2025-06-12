@@ -4,8 +4,6 @@ class Temperature:
     def __init__(self):
         self.root = Tk()
         self.root.title("Convert Temperature")
-        self.root.geometry("400x400")
-        self.root.configure(bg="#6c7228")
 
         self.container = Frame(self.root)
         self.container.grid(row=0, column=0, sticky="nswe")
@@ -28,11 +26,11 @@ class Temperature:
         self.temp_converter_label = Label(frame, font="Arial 16", text="Temperature Converter")
         self.temp_converter_label.grid(row=0, columnspan=2, padx=10, pady=10)
 
-        self.to_c_button = Button(frame, text="To Centigrade", bg="#ff3240", font="Arial 12 ", 
+        self.to_c_button = Button(frame, text="To Centigrade", bg="#dda6aa", font="Arial 12 ", 
                                   command=lambda: self.show_frame("to_cFrame"))
         self.to_c_button.grid(row=1, column=0, padx=10, pady=10)
 
-        self.to_f_button = Button(frame, text="To Fahrenheit", bg="#4a070c", font="Arial 12", 
+        self.to_f_button = Button(frame, text="To Fahrenheit", bg="#dda6aa", font="Arial 12", 
                                   command=lambda: self.show_frame("to_fFrame"))
         self.to_f_button.grid(row=1, column=1, padx=10, pady=10)
 
@@ -43,12 +41,35 @@ class Temperature:
         frame = Frame(self.container)
         Label(frame, text="Convert to Centigrade").grid(row=0, column=0)
         frame.grid(row=0, column=0, sticky="nswe")
+        Entry(frame, justify=CENTER).grid(row=1,column=0) 
+
+
+        self.calc_button = Button(frame, text="Calculate", bg="#dda6aa",font="Arial 12")
+        self.calc_button.grid(row=2,column=1, padx=10,pady=10)
+
+        self.back_button = Button(frame, text="Go Back", bg="#dda6aa", font="Arial 12 ",command=lambda: self.show_frame("MainFrame"))
+        self.back_button.grid(row=2, column=0, padx=10, pady=10)
+
+        self.reset_button=Button(frame, text="Reset", bg="#dda6aa", font="Arial 12")
+        self.reset_button.grid(row=2,column=2,padx=10,pady=10)
+
         return frame
+    
 
     def create_to_f_frame(self):
         frame = Frame(self.container)
         Label(frame, text="Convert to Fahrenheit").grid(row=0, column=0)
         frame.grid(row=0, column=0, sticky="nswe")
+        Entry(frame, justify=CENTER).grid(row=1,column=0)
+
+        self.calc_button = Button(frame, text="Calculate", bg="#dda6aa",font="Arial 12")
+        self.calc_button.grid(row=2,column=1, padx=10,pady=10)
+
+        self.back_button = Button(frame, text="Go Back", bg="#dda6aa", font="Arial 12 ",command=lambda: self.show_frame("MainFrame"))
+        self.back_button.grid(row=2, column=0, padx=10, pady=10)
+
+        self.reset_button=Button(frame, text="Reset", bg="#dda6aa", font="Arial 12")
+        self.reset_button.grid(row=2,column=2,padx=10,pady=10)
         return frame
 
     def run(self):
